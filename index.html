@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FormatFlux | Image Converter</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <h1>FormatFlux</h1>
+      <p>Convert images between many formats in your browser.</p>
+      <button id="logoutBtn" class="logout">Logout</button>
+    </header>
+
+    <section class="converter-card">
+      <label for="imageInput" class="file-upload">
+        <input id="imageInput" type="file" accept="image/*" />
+        <span>Choose an image</span>
+      </label>
+
+      <div class="controls">
+        <label for="targetFormat">Convert to</label>
+        <select id="targetFormat"></select>
+
+        <label for="quality">Quality (for lossy formats)</label>
+        <input id="quality" type="range" min="10" max="100" value="90" />
+        <span id="qualityValue">90%</span>
+
+        <button id="convertBtn" disabled>Convert & Download</button>
+      </div>
+
+      <p id="status" class="status">Upload an image to begin.</p>
+
+      <div class="preview-wrap hidden" id="previewWrap">
+        <h2>Preview</h2>
+        <img id="previewImage" alt="Selected image preview" />
+      </div>
+    </section>
+  </main>
+
+  <script src="auth.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
