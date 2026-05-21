@@ -7,7 +7,6 @@
   --brand-a: #22d3ee;
   --brand-b: #a78bfa;
 }
-
 * { box-sizing: border-box; }
 body {
   margin: 0;
@@ -16,80 +15,21 @@ body {
   color: var(--text);
   min-height: 100vh;
 }
-
-.app {
-  max-width: 840px;
-  margin: 0 auto;
-  padding: 2rem 1rem 3rem;
-}
-
-.hero h1 {
-  font-size: clamp(2rem, 3vw, 2.8rem);
-  margin-bottom: 0.5rem;
-  background: linear-gradient(90deg, var(--brand-a), var(--brand-b));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
+.app { max-width: 840px; margin: 0 auto; padding: 2rem 1rem 3rem; }
+.hero h1 { font-size: clamp(2rem, 3vw, 2.8rem); margin-bottom: .5rem; background: linear-gradient(90deg,var(--brand-a),var(--brand-b)); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .hero p { color: var(--muted); margin-top: 0; }
-
-.converter-card {
-  margin-top: 1.5rem;
-  background: color-mix(in srgb, var(--bg-elev), transparent 10%);
-  border: 1px solid #273451;
-  border-radius: 16px;
-  padding: 1.25rem;
-}
-
-.file-upload {
-  display: inline-block;
-  background: #1f2b4a;
-  border: 1px dashed #4b628f;
-  border-radius: 12px;
-  padding: 0.9rem 1.2rem;
-  cursor: pointer;
-  margin-bottom: 1rem;
-}
-.file-upload input { display: none; }
-
-.controls {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.55rem;
-}
-
-select,
-button,
-input[type="range"] {
-  width: 100%;
-}
-
-select,
-button {
-  padding: 0.7rem;
-  border-radius: 10px;
-  border: 1px solid #33466f;
-  background: #16213a;
-  color: var(--text);
-}
-
-button {
-  background: linear-gradient(90deg, #0891b2, #7c3aed);
-  border: none;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-button:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-}
-
+.logout { max-width: 140px; }
+.converter-card { margin-top: 1.5rem; background: color-mix(in srgb, var(--bg-elev), transparent 10%); border: 1px solid #273451; border-radius: 16px; padding: 1.25rem; }
+.file-upload { display:inline-block; background:#1f2b4a; border:1px dashed #4b628f; border-radius:12px; padding:.9rem 1.2rem; cursor:pointer; margin-bottom:1rem; }
+.file-upload input { display:none; }
+.controls { display:grid; grid-template-columns: 1fr; gap:.55rem; }
+select, button, input[type="range"], input { width:100%; }
+select, button, input { padding:.7rem; border-radius:10px; border:1px solid #33466f; background:#16213a; color:var(--text); }
+button { background: linear-gradient(90deg,#0891b2,#7c3aed); border:none; font-weight:700; cursor:pointer; }
+button:disabled { opacity:.45; cursor:not-allowed; }
 .status { color: var(--muted); }
-.preview-wrap img {
-  width: min(100%, 480px);
-  border-radius: 10px;
-  border: 1px solid #33466f;
-}
-.hidden { display: none; }
+.preview-wrap img { width:min(100%,480px); border-radius:10px; border:1px solid #33466f; }
+.hidden { display:none; }
+.auth-app { max-width: 520px; }
+.auth-card h1 { margin-top: 0; }
+a { color: #7dd3fc; }

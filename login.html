@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FormatFlux | Login</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app auth-app">
+    <section class="converter-card auth-card">
+      <h1>Welcome back to FormatFlux</h1>
+      <p class="status">Login to convert and download images.</p>
+      <form id="loginForm" class="controls" autocomplete="on">
+        <label for="email">Email</label>
+        <input id="email" type="email" required />
+        <label for="password">Password</label>
+        <input id="password" type="password" required />
+        <button type="submit">Login</button>
+      </form>
+      <p id="loginStatus" class="status"></p>
+      <p class="status">No account? <a href="register.html">Create one</a></p>
+    </section>
+  </main>
+  <script src="auth.js"></script>
+  <script>
+    if (FormatFluxAuth.getSession()) window.location.href = 'index.html';
+
+    document.getElementById('loginForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value.trim().toLowerCase();
+      const password = document.getElementById('password').value;
+      const users = FormatFluxAuth.getUsers();
+      const match = users.find((u) => u.email === email && u.password === password);
+      const status = document.getElementById('loginStatus');
+
+      if (!match) {
+        status.textContent = 'Invalid email or password.';
+        return;
+      }
+
+      FormatFluxAuth.setSession(email);
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>
