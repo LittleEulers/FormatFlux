@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FormatFlux | Image Converter</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">FormatFLux</div>
+    <nav class="nav">
+      <a href="#">Tools</a>
+      <a href="#">API</a>
+      <a href="#">Pricing</a>
+    </nav>
+    <div class="auth-links">
+      <a href="login.html" class="ghost-link">Sign in</a>
+      <a href="register.html" class="solid-link">Sign up</a>
+      <button id="logoutBtn" class="ghost-link">Logout</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-left">
+      <h1>Image Converter</h1>
+      <p>
+        FormatFLux converts your image files online. Amongst many others,
+        we support PNG, JPG, GIF, WEBP and HEIC. You can use options to
+        control image quality and file size.
+      </p>
+    </div>
+
+    <div class="hero-right">
+      <div class="format-box">
+        <div class="file-icon">📄</div>
+        <div class="fmt">ANY</div>
+      </div>
+      <div class="to">TO</div>
+      <div class="format-box active">
+        <div class="file-icon">📄</div>
+        <div class="fmt" id="selectedFormatChip">ANY</div>
+      </div>
+    </div>
+  </section>
+
+  <main class="content-wrap">
+    <section class="upload-card">
+      <label for="imageInput" class="upload-drop">
+        <input id="imageInput" type="file" accept="image/*" />
+        <div class="upload-icon">☁</div>
+        <h2>Select your file here to get started</h2>
+        <p>or drop your file here.</p>
+        <span class="select-btn">Select File</span>
+      </label>
+
+      <div class="options-row">
+        <label for="targetFormat">Convert to</label>
+        <select id="targetFormat"></select>
+
+        <label for="quality">Quality</label>
+        <input id="quality" type="range" min="10" max="100" value="90" />
+        <span id="qualityValue">90%</span>
+
+        <button id="convertBtn" disabled>Convert & Download</button>
+      </div>
+
+      <p id="status" class="status">Upload an image to begin.</p>
+      <div class="preview-wrap hidden" id="previewWrap">
+        <h3>Preview</h3>
+        <img id="previewImage" alt="Selected image preview" />
+      </div>
+    </section>
+
+    <section class="available-converters">
+      <p class="eyebrow">AVAILABLE CONVERTERS</p>
+      <h3>Image converters</h3>
+      <p>Browse every image format we support — each opens a dedicated converter.</p>
+      <div id="converterTags" class="tags"></div>
+    </section>
+  </main>
+
+  <script src="auth.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
