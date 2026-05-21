@@ -6,28 +6,25 @@
   <title>FormatFlux | Register</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <main class="app auth-app">
-    <section class="converter-card auth-card">
-      <h1>Create your FormatFlux account</h1>
-      <p class="status">Register to start converting images.</p>
-      <form id="registerForm" class="controls" autocomplete="on">
-        <label for="name">Name</label>
-        <input id="name" type="text" required minlength="2" />
-        <label for="email">Email</label>
-        <input id="email" type="email" required />
-        <label for="password">Password</label>
-        <input id="password" type="password" required minlength="6" />
-        <button type="submit">Register</button>
-      </form>
-      <p id="registerStatus" class="status"></p>
-      <p class="status">Already have an account? <a href="login.html">Login</a></p>
-    </section>
-  </main>
+<body class="auth-page">
+  <section class="auth-card">
+    <h1>Create FormatFLux account</h1>
+    <p class="status">Register to start converting images.</p>
+    <form id="registerForm" class="options-row" autocomplete="on">
+      <label for="name">Name</label>
+      <input id="name" type="text" required minlength="2" />
+      <label for="email">Email</label>
+      <input id="email" type="email" required />
+      <label for="password">Password</label>
+      <input id="password" type="password" required minlength="6" />
+      <button type="submit">Sign up</button>
+    </form>
+    <p id="registerStatus" class="status"></p>
+    <p class="status">Already have an account? <a href="login.html">Sign in</a></p>
+  </section>
   <script src="auth.js"></script>
   <script>
     if (FormatFluxAuth.getSession()) window.location.href = 'index.html';
-
     document.getElementById('registerForm').addEventListener('submit', (e) => {
       e.preventDefault();
       const name = document.getElementById('name').value.trim();
@@ -35,12 +32,7 @@
       const password = document.getElementById('password').value;
       const users = FormatFluxAuth.getUsers();
       const status = document.getElementById('registerStatus');
-
-      if (users.some((u) => u.email === email)) {
-        status.textContent = 'An account with this email already exists.';
-        return;
-      }
-
+      if (users.some((u) => u.email === email)) return (status.textContent = 'An account with this email already exists.');
       users.push({ name, email, password, createdAt: new Date().toISOString() });
       FormatFluxAuth.setUsers(users);
       FormatFluxAuth.setSession(email);
